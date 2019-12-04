@@ -1,0 +1,861 @@
+{
+  "contractName": "Ballot",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint8",
+          "name": "_numProposals",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "vote",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.12+commit.7709ece9\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint8\",\"name\":\"_numProposals\",\"type\":\"uint8\"}],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"constant\":true,\"inputs\":[],\"name\":\"vote\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"payable\":false,\"stateMutability\":\"pure\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{\"constructor\":\"Create a new ballot with $(_numProposals) different proposals.\",\"vote()\":{\"notice\":\"Give a single vote to proposal $(toProposal).\"}}}},\"settings\":{\"compilationTarget\":{\"/home/esteban/Documents/ESGI/2.1-Blockchain/DemocraVote/contracts/Ballot.sol\":\"Ballot\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/esteban/Documents/ESGI/2.1-Blockchain/DemocraVote/contracts/Ballot.sol\":{\"keccak256\":\"0x7d2f2c05150b47ed1453fcc9f646d066dd5cf07aa5259d904fe0134668a65b46\",\"urls\":[\"bzz-raw://16e88ba0f703841c8404e446329353f7bd1b1b14a411ab727c31cff97777ce4f\",\"dweb:/ipfs/QmRgnHqPH3y2EPjPb73Nq5nWxgqpJuTeqWfWrK7gtMuDxh\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b506040516101713803806101718339818101604052602081101561003357600080fd5b81019080805190602001909291905050505061011d806100546000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c8063632a9a5214602d575b600080fd5b603360ab565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101560715780820151818401526020810190506058565b50505050905090810190601f168015609d5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b60606040518060400160405280600f81526020017f53616c7574204875676f21203a4444000000000000000000000000000000000081525090509056fea265627a7a72315820d848ab5e28103838942680908705e4d8f27b02e2ceb2d5f4d1aa658990c06f9f64736f6c634300050c0032",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060285760003560e01c8063632a9a5214602d575b600080fd5b603360ab565b6040518080602001828103825283818151815260200191508051906020019080838360005b8381101560715780820151818401526020810190506058565b50505050905090810190601f168015609d5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b60606040518060400160405280600f81526020017f53616c7574204875676f21203a4444000000000000000000000000000000000081525090509056fea265627a7a72315820d848ab5e28103838942680908705e4d8f27b02e2ceb2d5f4d1aa658990c06f9f64736f6c634300050c0032",
+  "sourceMap": "33:500:0:-;;;331:47;8:9:-1;5:2;;;30:1;27;20:12;5:2;331:47:0;;;;;;;;;;;;;;;13:2:-1;8:3;5:11;2:2;;;29:1;26;19:12;2:2;331:47:0;;;;;;;;;;;;;;;;;33:500;;;;;;",
+  "deployedSourceMap": "33:500:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;33:500:0;;;;;;;;;;;;;;;;;;;439:92;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:10;8:100;;;99:1;94:3;90:11;84:18;80:1;75:3;71:11;64:39;52:2;49:1;45:10;40:15;;8:100;;;12:14;439:92:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;475:13;500:24;;;;;;;;;;;;;;;;;;;439:92;:::o",
+  "source": "pragma solidity >=0.4.22 <0.6.0;\ncontract Ballot {\n\n    struct Voter {\n        uint weight;\n        bool voted;\n        uint8 vote;\n    }\n    struct Proposal {\n        uint voteCount;\n    }\n\n    mapping(address => Voter) voters;\n    Proposal[] proposals;\n\n    /// Create a new ballot with $(_numProposals) different proposals.\n    constructor(uint8 _numProposals) public {\n    }\n\n\n    /// Give a single vote to proposal $(toProposal).\n    function vote() public pure returns(string memory) {\n        return \"Salut Hugo! :DD\";\n    }\n}",
+  "sourcePath": "/home/esteban/Documents/ESGI/2.1-Blockchain/DemocraVote/contracts/Ballot.sol",
+  "ast": {
+    "absolutePath": "/home/esteban/Documents/ESGI/2.1-Blockchain/DemocraVote/contracts/Ballot.sol",
+    "exportedSymbols": {
+      "Ballot": [
+        33
+      ]
+    },
+    "id": 34,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 33,
+        "linearizedBaseContracts": [
+          33
+        ],
+        "name": "Ballot",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Ballot.Voter",
+            "id": 8,
+            "members": [
+              {
+                "constant": false,
+                "id": 3,
+                "name": "weight",
+                "nodeType": "VariableDeclaration",
+                "scope": 8,
+                "src": "79:11:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "79:4:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5,
+                "name": "voted",
+                "nodeType": "VariableDeclaration",
+                "scope": 8,
+                "src": "100:10:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 4,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "100:4:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 7,
+                "name": "vote",
+                "nodeType": "VariableDeclaration",
+                "scope": 8,
+                "src": "120:10:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 6,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "120:5:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Voter",
+            "nodeType": "StructDefinition",
+            "scope": 33,
+            "src": "56:81:0",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "Ballot.Proposal",
+            "id": 11,
+            "members": [
+              {
+                "constant": false,
+                "id": 10,
+                "name": "voteCount",
+                "nodeType": "VariableDeclaration",
+                "scope": 11,
+                "src": "168:14:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 9,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "168:4:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Proposal",
+            "nodeType": "StructDefinition",
+            "scope": 33,
+            "src": "142:47:0",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 15,
+            "name": "voters",
+            "nodeType": "VariableDeclaration",
+            "scope": 33,
+            "src": "195:32:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Voter_$8_storage_$",
+              "typeString": "mapping(address => struct Ballot.Voter)"
+            },
+            "typeName": {
+              "id": 14,
+              "keyType": {
+                "id": 12,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "203:7:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "195:25:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Voter_$8_storage_$",
+                "typeString": "mapping(address => struct Ballot.Voter)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 13,
+                "name": "Voter",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 8,
+                "src": "214:5:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Voter_$8_storage_ptr",
+                  "typeString": "struct Ballot.Voter"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 18,
+            "name": "proposals",
+            "nodeType": "VariableDeclaration",
+            "scope": 33,
+            "src": "233:20:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_Proposal_$11_storage_$dyn_storage",
+              "typeString": "struct Ballot.Proposal[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 16,
+                "name": "Proposal",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 11,
+                "src": "233:8:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Proposal_$11_storage_ptr",
+                  "typeString": "struct Ballot.Proposal"
+                }
+              },
+              "id": 17,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "233:10:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_Proposal_$11_storage_$dyn_storage_ptr",
+                "typeString": "struct Ballot.Proposal[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 23,
+              "nodeType": "Block",
+              "src": "371:7:0",
+              "statements": []
+            },
+            "documentation": "Create a new ballot with $(_numProposals) different proposals.",
+            "id": 24,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 21,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 20,
+                  "name": "_numProposals",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 24,
+                  "src": "343:19:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 19,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "343:5:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "342:21:0"
+            },
+            "returnParameters": {
+              "id": 22,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "371:0:0"
+            },
+            "scope": 33,
+            "src": "331:47:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 31,
+              "nodeType": "Block",
+              "src": "490:41:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "53616c7574204875676f21203a4444",
+                    "id": 29,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "string",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "507:17:0",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_stringliteral_60c9f04b311b19c3d43418c406f111facffc3970cbbce718923047e67c45a033",
+                      "typeString": "literal_string \"Salut Hugo! :DD\""
+                    },
+                    "value": "Salut Hugo! :DD"
+                  },
+                  "functionReturnParameters": 28,
+                  "id": 30,
+                  "nodeType": "Return",
+                  "src": "500:24:0"
+                }
+              ]
+            },
+            "documentation": "Give a single vote to proposal $(toProposal).",
+            "id": 32,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "vote",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "452:2:0"
+            },
+            "returnParameters": {
+              "id": 28,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 27,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 32,
+                  "src": "475:13:0",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 26,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "475:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "474:15:0"
+            },
+            "scope": 33,
+            "src": "439:92:0",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 34,
+        "src": "33:500:0"
+      }
+    ],
+    "src": "0:533:0"
+  },
+  "legacyAST": {
+    "absolutePath": "/home/esteban/Documents/ESGI/2.1-Blockchain/DemocraVote/contracts/Ballot.sol",
+    "exportedSymbols": {
+      "Ballot": [
+        33
+      ]
+    },
+    "id": 34,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.6",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:32:0"
+      },
+      {
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 33,
+        "linearizedBaseContracts": [
+          33
+        ],
+        "name": "Ballot",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "canonicalName": "Ballot.Voter",
+            "id": 8,
+            "members": [
+              {
+                "constant": false,
+                "id": 3,
+                "name": "weight",
+                "nodeType": "VariableDeclaration",
+                "scope": 8,
+                "src": "79:11:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 2,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "79:4:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 5,
+                "name": "voted",
+                "nodeType": "VariableDeclaration",
+                "scope": 8,
+                "src": "100:10:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bool",
+                  "typeString": "bool"
+                },
+                "typeName": {
+                  "id": 4,
+                  "name": "bool",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "100:4:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bool",
+                    "typeString": "bool"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 7,
+                "name": "vote",
+                "nodeType": "VariableDeclaration",
+                "scope": 8,
+                "src": "120:10:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 6,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "120:5:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Voter",
+            "nodeType": "StructDefinition",
+            "scope": 33,
+            "src": "56:81:0",
+            "visibility": "public"
+          },
+          {
+            "canonicalName": "Ballot.Proposal",
+            "id": 11,
+            "members": [
+              {
+                "constant": false,
+                "id": 10,
+                "name": "voteCount",
+                "nodeType": "VariableDeclaration",
+                "scope": 11,
+                "src": "168:14:0",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 9,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "168:4:0",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "name": "Proposal",
+            "nodeType": "StructDefinition",
+            "scope": 33,
+            "src": "142:47:0",
+            "visibility": "public"
+          },
+          {
+            "constant": false,
+            "id": 15,
+            "name": "voters",
+            "nodeType": "VariableDeclaration",
+            "scope": 33,
+            "src": "195:32:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Voter_$8_storage_$",
+              "typeString": "mapping(address => struct Ballot.Voter)"
+            },
+            "typeName": {
+              "id": 14,
+              "keyType": {
+                "id": 12,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "203:7:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "195:25:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Voter_$8_storage_$",
+                "typeString": "mapping(address => struct Ballot.Voter)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 13,
+                "name": "Voter",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 8,
+                "src": "214:5:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Voter_$8_storage_ptr",
+                  "typeString": "struct Ballot.Voter"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "constant": false,
+            "id": 18,
+            "name": "proposals",
+            "nodeType": "VariableDeclaration",
+            "scope": 33,
+            "src": "233:20:0",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_array$_t_struct$_Proposal_$11_storage_$dyn_storage",
+              "typeString": "struct Ballot.Proposal[]"
+            },
+            "typeName": {
+              "baseType": {
+                "contractScope": null,
+                "id": 16,
+                "name": "Proposal",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 11,
+                "src": "233:8:0",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_Proposal_$11_storage_ptr",
+                  "typeString": "struct Ballot.Proposal"
+                }
+              },
+              "id": 17,
+              "length": null,
+              "nodeType": "ArrayTypeName",
+              "src": "233:10:0",
+              "typeDescriptions": {
+                "typeIdentifier": "t_array$_t_struct$_Proposal_$11_storage_$dyn_storage_ptr",
+                "typeString": "struct Ballot.Proposal[]"
+              }
+            },
+            "value": null,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 23,
+              "nodeType": "Block",
+              "src": "371:7:0",
+              "statements": []
+            },
+            "documentation": "Create a new ballot with $(_numProposals) different proposals.",
+            "id": 24,
+            "implemented": true,
+            "kind": "constructor",
+            "modifiers": [],
+            "name": "",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 21,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 20,
+                  "name": "_numProposals",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 24,
+                  "src": "343:19:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  },
+                  "typeName": {
+                    "id": 19,
+                    "name": "uint8",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "343:5:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint8",
+                      "typeString": "uint8"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "342:21:0"
+            },
+            "returnParameters": {
+              "id": 22,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "371:0:0"
+            },
+            "scope": 33,
+            "src": "331:47:0",
+            "stateMutability": "nonpayable",
+            "superFunction": null,
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 31,
+              "nodeType": "Block",
+              "src": "490:41:0",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "hexValue": "53616c7574204875676f21203a4444",
+                    "id": 29,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "string",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "507:17:0",
+                    "subdenomination": null,
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_stringliteral_60c9f04b311b19c3d43418c406f111facffc3970cbbce718923047e67c45a033",
+                      "typeString": "literal_string \"Salut Hugo! :DD\""
+                    },
+                    "value": "Salut Hugo! :DD"
+                  },
+                  "functionReturnParameters": 28,
+                  "id": 30,
+                  "nodeType": "Return",
+                  "src": "500:24:0"
+                }
+              ]
+            },
+            "documentation": "Give a single vote to proposal $(toProposal).",
+            "id": 32,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "vote",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 25,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "452:2:0"
+            },
+            "returnParameters": {
+              "id": 28,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 27,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 32,
+                  "src": "475:13:0",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 26,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "475:6:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "474:15:0"
+            },
+            "scope": 33,
+            "src": "439:92:0",
+            "stateMutability": "pure",
+            "superFunction": null,
+            "visibility": "public"
+          }
+        ],
+        "scope": 34,
+        "src": "33:500:0"
+      }
+    ],
+    "src": "0:533:0"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.5.12+commit.7709ece9.Emscripten.clang"
+  },
+  "networks": {
+    "42": {
+      "events": {},
+      "links": {},
+      "address": "0x2565F21Ff912d4d6CF234325280fF4De028a7668",
+      "transactionHash": "0xdd6d1dbb6a4a358ccf46b30f2b477169e5e534d2849fd81d7a91a6762ce54b4c"
+    }
+  },
+  "schemaVersion": "3.0.19",
+  "updatedAt": "2019-12-04T11:09:44.989Z",
+  "networkType": "ethereum",
+  "devdoc": {
+    "methods": {}
+  },
+  "userdoc": {
+    "methods": {
+      "constructor": "Create a new ballot with $(_numProposals) different proposals.",
+      "vote()": {
+        "notice": "Give a single vote to proposal $(toProposal)."
+      }
+    }
+  }
+}
