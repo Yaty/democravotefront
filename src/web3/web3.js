@@ -4,24 +4,23 @@ import BallotContract from '../../build/contracts/Ballot.json'
 const Users = {
   contract: null,
   instance: null,
-  init() {
-    let self = this;
 
-    return new Promise(function (resolve, reject) {
-      self.contract = contract(BallotContract);
-      self.contract.setProvider(window.web3.currentProvider);
-
-      self.contract.deployed().then(instance => {
-        self.instance = instance;
-        resolve();
-      }).catch(err => {
-        reject(err);
-      });
-    })
+  async init() {
+    this.contract = contract(BallotContract);
+    this.contract.setProvider(window.web3.currentProvider);
+    this.instance = await this.contract.deployed();
   },
 
-  vote() {
-    return this.instance.vote.call();
+  vote(votes) {
+    return this.instance.vote(votes);
+  },
+
+  getWinner() {
+    return this.instance.getWinner();
+  },
+
+  processVoteResult() {
+    return this.instance.processVoteResult();
   },
 };
 
